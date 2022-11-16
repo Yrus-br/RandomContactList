@@ -35,6 +35,19 @@ class ListViewController: UITableViewController {
         content.text = person.name.first
         content.secondaryText = person.name.last
         
+        let imageUrl  = person.picture.thumbnail
+        
+        NetworkManager.shared.fetchData(from: imageUrl) { result in
+            switch result {
+            case .success(let image):
+                content.image = UIImage(data: image)
+                cell.contentConfiguration = content
+            case .failure(let error):
+                print(error.localizedDescription)
+                
+            }
+        }
+        
         cell.contentConfiguration = content
         return cell
     }
