@@ -68,11 +68,6 @@ struct Name {
         first = value["first"] ?? ""
         last = value["last"] ?? ""
     }
-
-//    init(first: String, last: String) {
-//        self.first = first
-//        self.last = last
-//    }
 }
 
 struct Location {

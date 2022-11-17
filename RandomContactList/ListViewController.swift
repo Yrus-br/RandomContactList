@@ -47,9 +47,14 @@ class ListViewController: UITableViewController {
                 
             }
         }
-        
         cell.contentConfiguration = content
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentUser = randomContacts[indexPath.row]
+        performSegue(withIdentifier: "showDetails", sender: currentUser)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     /*
@@ -73,15 +78,13 @@ class ListViewController: UITableViewController {
      */
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailsVC = segue.destination as? DetailsViewController else { return }
+        detailsVC.contacts = sender as? User
+    }
     
     // MARK: - Private Methods
     
