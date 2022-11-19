@@ -9,9 +9,11 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
+    @IBOutlet var contactPhone: UILabel!
     @IBOutlet var contactImageView: UIImageView!
     @IBOutlet var ContactFullName: UILabel!
-    
+    @IBOutlet var ContactID: UILabel!
+    @IBOutlet var DetailsLabel: UILabel!
     var contacts: User!
     
     override func viewDidLoad() {
@@ -20,7 +22,17 @@ class DetailsViewController: UIViewController {
     }
     
     private func configure() {
-        ContactFullName.text = contacts.name.last
+        ContactFullName.text = """
+\(contacts.name.title) \(contacts.name.first)
+\(contacts.name.last)
+"""
+        DetailsLabel.text = """
+ Country: \(contacts.location.country)
+ Postcode: \(contacts.location.postcode)
+ email: \(contacts.email)
+ """
+        contactPhone.text = contacts.phone
+        ContactID.text = "ID: \(contacts.id.value)"
         contactImageView.layer.cornerRadius = contactImageView.bounds.height / 2
         contactImageView.layer.borderWidth  = 2
         contactImageView.layer.borderColor = UIColor.black.cgColor
