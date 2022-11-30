@@ -15,6 +15,7 @@ class ListViewController: UITableViewController {
         super.viewDidLoad()
         tableView.rowHeight = 70
         getData()
+        setupRefreshControl() 
     }
     
     // MARK: - Table view data source
@@ -66,16 +67,26 @@ class ListViewController: UITableViewController {
     
     // MARK: - Private Methods
     
-    private func getData() {
+    @objc private func getData() {
         NetworkManager.shared.fetchPerson(from: URLLinks.randomUserLink.rawValue) { [weak self] result in
             switch result {
             case .success(let persons):
                 self?.randomContacts = persons
                 self?.tableView.reloadData()
+                if self?.refreshControl != nil {
+                    self?.refreshControl?.endRefreshing()
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
         
     }
+    
+    private func setupRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl?.addTarget(self, action: #selector(getData), for: .valueChanged)
+    }
+
 }

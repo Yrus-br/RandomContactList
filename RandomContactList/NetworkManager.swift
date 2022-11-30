@@ -24,6 +24,7 @@ class NetworkManager {
                 switch dataResponse.result {
                 case .success(let value):
                     let users = User.getUser(from: value)
+                    print(value)
                     completion(.success(users))
                 case .failure(let error):
                     completion(.failure(error))
