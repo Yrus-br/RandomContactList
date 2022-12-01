@@ -15,7 +15,7 @@ class ListViewController: UITableViewController {
         super.viewDidLoad()
         tableView.rowHeight = 70
         getData()
-        setupRefreshControl() 
+        setupRefreshControl()
     }
     
     // MARK: - Table view data source
