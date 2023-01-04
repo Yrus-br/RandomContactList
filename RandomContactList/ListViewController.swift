@@ -88,5 +88,4 @@ class ListViewController: UITableViewController {
         refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl?.addTarget(self, action: #selector(getData), for: .valueChanged)
     }
-
 }

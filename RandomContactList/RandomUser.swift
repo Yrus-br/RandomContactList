@@ -163,8 +163,8 @@ struct Picture {
         medium = value["medium"] ?? ""
         thumbnail = value["thumbnail"] ?? ""
     }
+    
 }
-
 enum URLLinks: String {
     case randomUserLink = "https://randomuser.me/api/"
 }

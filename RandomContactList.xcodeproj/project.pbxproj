@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F4AB95D2966439A008CCBAA /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AB95C2966439A008CCBAA /* FavoritesViewController.swift */; };
 		3FD83F0A2923BD8A00C9CC6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD83F092923BD8A00C9CC6D /* AppDelegate.swift */; };
 		3FD83F0C2923BD8A00C9CC6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD83F0B2923BD8A00C9CC6D /* SceneDelegate.swift */; };
 		3FD83F0E2923BD8A00C9CC6D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD83F0D2923BD8A00C9CC6D /* DetailsViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F4AB95C2966439A008CCBAA /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		3FD83F062923BD8A00C9CC6D /* RandomContactList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomContactList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD83F092923BD8A00C9CC6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FD83F0B2923BD8A00C9CC6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				3FD83F212923C6E200C9CC6D /* ListViewController.swift */,
 				3FD83F0D2923BD8A00C9CC6D /* DetailsViewController.swift */,
+				3F4AB95C2966439A008CCBAA /* FavoritesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			files = (
 				3FD83F0E2923BD8A00C9CC6D /* DetailsViewController.swift in Sources */,
 				3FD83F0A2923BD8A00C9CC6D /* AppDelegate.swift in Sources */,
+				3F4AB95D2966439A008CCBAA /* FavoritesViewController.swift in Sources */,
 				3FD83F292923C78700C9CC6D /* NetworkManager.swift in Sources */,
 				3FD83F0C2923BD8A00C9CC6D /* SceneDelegate.swift in Sources */,
 				3FD83F222923C6E200C9CC6D /* ListViewController.swift in Sources */,
