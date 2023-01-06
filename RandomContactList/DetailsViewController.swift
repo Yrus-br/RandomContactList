@@ -18,6 +18,7 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configure()
     }
     
@@ -36,6 +37,9 @@ class DetailsViewController: UIViewController {
         contactImageView.layer.cornerRadius = contactImageView.bounds.height / 2
         contactImageView.layer.borderWidth  = 2
         contactImageView.layer.borderColor = UIColor.black.cgColor
+        
+        navigationItem.title = ContactFullName.text
+        
         NetworkManager.shared.fetchData(from: contacts.picture.thumbnail) { [weak self] result in
             switch result {
             case .success(let image):

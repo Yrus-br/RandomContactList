@@ -16,6 +16,8 @@ class ListViewController: UITableViewController {
         tableView.rowHeight = 70
         getData()
         setupRefreshControl()
+        
+        navigationItem.title = "Random Contact's"
     }
     
     // MARK: - Table view data source
@@ -56,6 +58,13 @@ class ListViewController: UITableViewController {
         let currentUser = randomContacts[indexPath.row]
         performSegue(withIdentifier: "showDetails", sender: currentUser)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            randomContacts.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
     
     // MARK: - Navigation
