@@ -60,11 +60,23 @@ class ListViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            randomContacts.remove(at: indexPath.row)
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let contact = randomContacts[indexPath.row]
+        let favoritesVC = FavoritesViewController()
+        
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+            self.randomContacts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
+        
+        let addToFavorite = UIContextualAction(style: .normal, title: "Favorite") { _, _, _ in
+            favoritesVC.favoriteContacts.append(contact)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [addToFavorite, deleteAction])
     }
     
     // MARK: - Navigation
