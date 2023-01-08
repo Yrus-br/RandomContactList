@@ -7,15 +7,25 @@
 
 import UIKit
 
-class ListViewController: UITableViewController {
+class ListViewController: UITableViewController, UISearchResultsUpdating {
     
     private var randomContacts: [User] = []
+    
+    private let searchController = UISearchController(searchResultsController: nil)
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 70
         getData()
         setupRefreshControl()
+        setupSearchController()
         
         navigationItem.title = "Random Contact's"
     }
@@ -102,6 +112,32 @@ class ListViewController: UITableViewController {
             }
         }
         
+    }
+    
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.barTintColor = .white
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textField.font = UIFont.boldSystemFont(ofSize: 17)
+            textField.textColor = .white
+        }
+    }
+    
+    internal func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text ?? "")
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+        randomContacts = randomContacts.filter { character in
+            character.name.first.contains(searchText.lowercased())
+        }
+        
+        tableView.reloadData()
     }
     
     private func setupRefreshControl() {
