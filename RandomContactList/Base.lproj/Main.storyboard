@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Contact List-->
+        <!--Contacts-->
         <scene sceneID="7YG-mE-ieN">
             <objects>
                 <tableViewController id="aHm-Zn-eqM" customClass="ListViewController" customModule="RandomContactList" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,7 +34,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Contacts" image="person.fill" catalog="system" id="rhs-dg-qxE"/>
-                    <navigationItem key="navigationItem" title="Contact List" largeTitleDisplayMode="always" style="editor" id="DS0-J1-Okq"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" style="editor" id="DS0-J1-Okq"/>
                     <connections>
                         <segue destination="qAD-a8-gnx" kind="show" identifier="showDetails" id="AN0-b8-WIK"/>
                     </connections>
@@ -127,11 +127,11 @@
             </objects>
             <point key="canvasLocation" x="-677" y="82"/>
         </scene>
-        <!--Favorites-->
+        <!--Favorite Contact's-->
         <scene sceneID="NEV-sb-jSO">
             <objects>
-                <tableViewController id="2xc-DQ-cnw" customClass="FavoritesViewController" customModule="RandomContactList" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="DGO-wt-EJj">
+                <tableViewController title="Favorite Contact's" id="2xc-DQ-cnw" customClass="FavoritesViewController" customModule="RandomContactList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="DGO-wt-EJj">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

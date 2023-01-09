@@ -22,12 +22,15 @@ class ListViewController: UITableViewController, UISearchResultsUpdating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.rowHeight = 70
+        
         getData()
+        
         setupRefreshControl()
         setupSearchController()
         
-        navigationItem.title = "Random Contact's"
+        tabBarController?.navigationItem.title = "Random Contact's"
     }
     
     // MARK: - Table view data source

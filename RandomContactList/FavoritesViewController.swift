@@ -14,6 +14,7 @@ class FavoritesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBarController?.navigationItem.title = "Favorite Contact's"
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
